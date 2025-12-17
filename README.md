@@ -43,4 +43,8 @@ This tutorial outlines the implementation of on-premises Active Directory within
   Create first VM first one being the domain controller and call it "DC-1":
   <img src="https://i.imgur.com/1ObiyJA.png" height="75%" width="75%" alt="DC1"/>
 </p>
+<p>
+  After creating VM for domain controller were going to set the ip of it to static:
+  <img src="https://i.imgur.com/DjSTChh.png" height="75%" width="75%" alt="Static"/>
+</p>
 
