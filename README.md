@@ -24,7 +24,7 @@ This tutorial outlines the implementation of on-premises Active Directory within
 - Create an Admin and Normal User Account in AD
 - Join Client-1 to your domain
 - Setup Remote Desktop for non-administrative users on Client-1
-- Create a manu additional users and attempt to log into client-1 with one of the users
+- Create additional users and attempt to log into client-1 with one of the users
 
 <h2>Deployment and Configuration Steps</h2>
 <br />
@@ -47,4 +47,25 @@ This tutorial outlines the implementation of on-premises Active Directory within
   After creating VM for domain controller were going to set the ip of it to static:
   <img src="https://i.imgur.com/DjSTChh.png" height="75%" width="75%" alt="Static"/>
 </p>
-
+<p>
+  Create Second VM for Client using the same resource group and Vnet used for DC client:
+  <img src="https://i.imgur.com/uXzmcUe.png" height="75%" width="75%" alt="Client"/>
+</p>
+<p>
+  Make sure both VM's are in the same Vnet by checking out the Topology tab:
+  <img src="https://i.imgur.com/Scx92dU.png" height="75%" width="75%" alt="Topology"/>
+<h3 align="center">Check for connectivity between DC and Client VM's</h3>
+<br />
+<p>
+  Login to Client-1 with Remote Desktop and ping DC-1’s private IP address with ping -t (perpetual ping):
+  <img src="https://i.imgur.com/GlQ5R9Q.png" height="75%" width="75%" alt="Ping"/>
+</p>
+<p>
+  Enable DC-1 VM to respond to pings from Client-1 VM on the Vnet:
+  <img src="https://i.imgur.com/h9m2mUS.png" height="75%" width="75%" alt="Ping"/>
+</p>
+<p>
+  Check back with Client-1 VM to see if ping is now successful:
+  <img src="https://i.imgur.com/Q4YVJ0q.png" height="75%" width="75%" alt="Ping"/>
+</p>
+  
