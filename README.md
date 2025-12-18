@@ -13,8 +13,8 @@ This tutorial outlines the implementation of on-premises Active Directory within
 
 <h2>Operating Systems Used </h2>
 
-- Windows Server
-- Windows 
+- Windows Server 2025 Datacenter: Azure Edition
+- Windows 11 Pro, 25H2
 
 <h2>High-Level Deployment and Configuration Steps</h2>
 
