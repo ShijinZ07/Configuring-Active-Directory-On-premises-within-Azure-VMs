@@ -132,3 +132,8 @@ This tutorial outlines the implementation of on-premises Active Directory within
 </p>
 <h3 align="center">Setup Remote Desktop for non-admin users on Client-1</h3>
 <br />
+<p>
+ Log into Client-1 as DC1ActiveDirectory\shijin_admin and search up remote desktop settings ->remote desktop users -> add -> type-in domain users and check name and click ok:
+  <br />
+  <img src="https://i.imgur.com/3TYgecW.png" height="75%" width="75%" alt="DomainUsersRemote"/>
+</p>
