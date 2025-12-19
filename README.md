@@ -19,12 +19,12 @@ This tutorial outlines the implementation of on-premises Active Directory within
 <h2>High-Level Deployment and Configuration Steps</h2>
 
 - Create Resources
-- Ensure Connectivity between the client and Domain Controller
+- Ensure Connectivity between the Domain Controller VM and client VM 
 - Install Active Directory
-- Create an Admin and Normal User Account in AD
+- Create an Admin user and Normal Users Account in AD
 - Join Client-1 to your domain
 - Setup Remote Desktop for non-administrative users on Client-1
-- Create additional users and attempt to log into client-1 with one of the users
+- Generate additional users using a powershell script and attempt to log into client-1 with one of those users
 
 <h2>Deployment and Configuration Steps</h2>
 <br />
@@ -136,4 +136,25 @@ This tutorial outlines the implementation of on-premises Active Directory within
  Log into Client-1 as DC1ActiveDirectory\shijin_admin and search up remote desktop settings ->remote desktop users -> add -> type-in domain users and check name and click ok:
   <br />
   <img src="https://i.imgur.com/3TYgecW.png" height="75%" width="75%" alt="DomainUsersRemote"/>
+</p>
+<h3 align="center">Generating a ton of users using a powershell script</h3>
+<br />
+<p>
+ Log into Client-1 as shijin_admin and Open PowerShell_ise as an admin -> Create a new Script and copy and paste the contents of this script that generates random username and saves it to our _EMPLOYEES directory (https://github.com/joshmadakor1/AD_PS/blob/master/Generate-Names-Create-Users.ps1):
+  <br />
+  <img src="https://i.imgur.com/PQ3lcZ9.png" height="75%" width="75%" alt="Script"/>
+  </p>
+<p>
+Check the users added by the script are now in Active Directory:
+  <br />
+  <img src="https://i.imgur.com/eBxPv08.png" height="75%" width="75%" alt="AddedUsers"/>
+</p>
+<p>
+Log-in Client-1 using the creditials created by the script to see if everything was done correctly(note the password is in the script):
+  <br />
+  <img src="https://i.imgur.com/2ONqM4W.png" height="75%" width="75%" alt="userlogin"/>
+  <img src="https://i.imgur.com/OJXQ3TX.png" height="75%" width="75%" alt="userlogin!"/>
+</p>
+<p>
+CLEAN UP AZURE ENVIRONMENT to make sure we dont incur charges. Delete everything created in this tutorial
 </p>
