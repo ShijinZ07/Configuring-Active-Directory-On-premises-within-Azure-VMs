@@ -61,11 +61,74 @@ This tutorial outlines the implementation of on-premises Active Directory within
   <img src="https://i.imgur.com/GlQ5R9Q.png" height="75%" width="75%" alt="Ping"/>
 </p>
 <p>
-  Enable DC-1 VM to respond to pings from Client-1 VM on the Vnet:
+  Enable DC-1 VM to respond to pings from Client-1 VM on the Vnet via the CLI:
   <img src="https://i.imgur.com/h9m2mUS.png" height="75%" width="75%" alt="Ping"/>
 </p>
 <p>
   Check back with Client-1 VM to see if ping is now successful:
   <img src="https://i.imgur.com/Q4YVJ0q.png" height="75%" width="75%" alt="Ping"/>
 </p>
-  
+<br />
+<h3 align="center">Setup Active Directroy in DC-1 VM</h3>
+<br />
+<p>
+  RDP into DC-1 and install Active Directory:
+  <img src="https://i.imgur.com/AF5Z00r.png" height="75%" width="75%" alt="AD"/>
+</p>
+<p>
+  Promote to Domain Controller:
+  <br />
+  <img src="https://i.imgur.com/lgoWhOK.png" height="75%" width="75%" alt="Promote"/>
+</p>
+<p>
+  Add a new forest(can be named whatever you want):
+  <br />
+  <img src="https://i.imgur.com/9DVGcBa.png" height="75%" width="75%" alt="Forest"/>
+</p>
+<p>
+ The VM will restart and you will have to relog using the root domain name \yourusername:
+  <br />
+  <img src="https://i.imgur.com/QwD5a68.png" height="75%" width="75%" alt="Relog"/>
+</p>
+<h3 align="center">Creating an admind and a normal user in Active Directory</h3>
+<br />
+<p>
+ Were going to go to Active Directo Users and Computers right-click our forest and create 2 organizational units _ADMINS and _EMPLOYEES :
+  <br />
+  <img src="https://i.imgur.com/tq6B4Jo.png" height="75%" width="75%" alt="OU's"/>
+</p>
+<p>
+ Create a new user:
+  <br />
+  <img src="https://i.imgur.com/4tKEoHR.png" height="75%" width="75%" alt="New User"/>
+</p>
+<p>
+ Add the user we created to Domain Admins Group:
+  <br />
+  <img src="https://i.imgur.com/KAL377w.png" height="75%" width="75%" alt="Domain Admin"/>
+</p>
+<p>
+ Disconnect and relog-in with new created admin:
+  <br />
+  <img src="https://i.imgur.com/MsyugAr.png" height="75%" width="75%" alt="New Admin"/>
+</p>
+<br />
+<h3 align="center">Joing Client-1's VM to Domain</h3>
+<br />
+<p>
+ Change Vnets DNS to DC-1 VM's static IP:
+  <br />
+  <img src="https://i.imgur.com/UtuEytq.png" height="75%" width="75%" alt="VnetStatic"/>
+</p>
+<p>
+ Were going to RDP into our Client-1 VM and join our domain using our new admin Credentials we created:
+  <br />
+  <img src="https://i.imgur.com/Yi5zv51.png" height="75%" width="75%" alt="JoinDomain"/>
+</p>
+<p>
+ RDP into our DC-1 VM and verify Client-1 shows up in Active Directory Users and Computers(ADUC) inside the “Computers” folder on the root of the domain. Create a new OU named “_CLIENTS” and move Client-1 into there:
+  <br />
+  <img src="https://i.imgur.com/yYfKbth.png" height="75%" width="75%" alt="VerifyClient1"/>
+</p>
+<h3 align="center">Setup Remote Desktop for non-admin users on Client-1</h3>
+<br />
